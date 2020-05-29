@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.morefans</groupId>
+	<artifactId>mfs</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mfs</name>
+	<description>深圳魔饭生科技有限公司</description>
+
+	<!-- 开发者信息 -->
+	<developers>
+		<developer>
+			<id>nobodyiam</id>
+			<name>devin tam</name>
+			<email>txtxw@163.com</email>
+			<organization>morefans</organization>
+			<organizationUrl>http://www.morefans.com.cn/</organizationUrl>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+
+	<modules>
+		<module>basic-common</module>
+
+	</modules>
+
+
+	<!-- 依赖jar版本 属性配置 -->
+	<properties>
+		<java.version>1.8</java.version>
+		<spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
+		<!--<alibaba-cloud.version>2.1.2.RELEASE</alibaba-cloud.version>-->
+		<springboot.version>2.1.14.RELEASE</springboot.version>
+		<!-- springcloud 版本使用参考官网：https://spring.io/projects/spring-cloud -->
+		<springcloud.version>Greenwich.SR3</springcloud.version>
+		<hutool.version>4.5.13</hutool.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<!-- 公用依赖jar包，可以在父模块中指定 -->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.alibaba.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+		</dependency>
+
+		<!--Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<!-- 依赖资源包管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring Boot 依赖 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${springboot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- spring Cloud 依赖 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${springcloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- alibaba nacos 依赖  -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${spring-cloud-alibaba.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!--<dependency>-->
+				<!--<groupId>com.alibaba.cloud</groupId>-->
+				<!--<artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+				<!--<version>${alibaba-cloud.version}</version>-->
+				<!--<type>pom</type>-->
+				<!--<scope>import</scope>-->
+			<!--</dependency>-->
+
+			<!-- 项目工程服务统一依赖管理 START -->
+
+			<!-- 项目工程服务统一依赖管理 END -->
+
+			<!--spring boot web 模块 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${springboot.version}</version>
+				<exclusions>
+					<!--排除tomcat依赖 ,使用underom -->
+					<exclusion>
+						<artifactId>spring-boot-starter-tomcat</artifactId>
+						<groupId>org.springframework.boot</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+
+	<!-- 打包时，需要指定的环境变量参数 dev 开发环境  test 测试环境  prod 生成环境-->
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<profileActive>dev</profileActive>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>test</id>
+			<properties>
+				<profileActive>test</profileActive>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profileActive>prod</profileActive>
+			</properties>
+		</profile>
+
+	</profiles>
+
+	<!-- 项目构建配置 -->
+	<build>
+		<finalName>${project.name}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<!--<includes>-->
+				<!--<include>application-${profileActive}.yml</include>-->
+				<!--</includes>-->
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${springboot.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<target>${maven.compiler.target}</target>
+					<source>${maven.compiler.source}</source>
+					<encoding>UTF-8</encoding>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.2.5</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 配置阿里云仓库 -->
+	<repositories>
+		<!--阿里云主仓库，代理了maven central和jcenter仓库 -->
+		<repository>
+			<id>aliyun</id>
+			<name>aliyun</name>
+			<url>https://maven.aliyun.com/repository/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<!--阿里云代理Spring 官方仓库 -->
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://maven.aliyun.com/repository/spring</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	</repositories>
+
+</project>
