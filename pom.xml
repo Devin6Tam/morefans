@@ -23,10 +23,15 @@
 		</developer>
 	</developers>
 
-
 	<modules>
 		<module>basic-common</module>
-
+		<module>mfs-stars</module>
+		<module>mfs-trade</module>
+		<module>mfs-woods</module>
+		<module>mfs-activity</module>
+		<module>mfs-backend</module>
+		<module>mfs-api</module>
+		<module>mfs-nacos-demo</module>
 	</modules>
 
 
@@ -57,6 +62,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-dubbo</artifactId>
 		</dependency>
 
 		<!--Lombok -->
@@ -90,16 +100,8 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- spring Cloud 依赖 -->
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${springcloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 
-			<!-- alibaba nacos 依赖  -->
+			<!-- SpringCloudAlibaba 依赖  -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -108,16 +110,14 @@
 				<scope>import</scope>
 			</dependency>
 
-			<!--<dependency>-->
-				<!--<groupId>com.alibaba.cloud</groupId>-->
-				<!--<artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-				<!--<version>${alibaba-cloud.version}</version>-->
-				<!--<type>pom</type>-->
-				<!--<scope>import</scope>-->
-			<!--</dependency>-->
-
 			<!-- 项目工程服务统一依赖管理 START -->
-
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>basic-common-bom</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<!-- 项目工程服务统一依赖管理 END -->
 
 			<!--spring boot web 模块 -->

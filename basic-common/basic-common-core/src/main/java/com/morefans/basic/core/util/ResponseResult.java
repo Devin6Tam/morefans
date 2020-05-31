@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 /**
  * 响应信息主体.
- * @author zibin
+ * @author tanxw
  */
 
 @Builder
@@ -52,6 +52,7 @@ public class ResponseResult<T> implements Serializable {
         this.result = result;
         this.msg = msg;
     }
+
 
     public ResponseResult(Throwable e) {
         super();

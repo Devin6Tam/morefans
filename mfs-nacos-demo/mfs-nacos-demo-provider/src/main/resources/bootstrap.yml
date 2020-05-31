@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: mfs-nacos-demo-provider
+  main:
+    allow-bean-definition-overriding: true  #解决bean重复定义的。设置为true时，后定义的bean会覆盖之前定义的相同名称的bean。(问题点1：这里要考虑双亲委派和重复加载会不会导致后续的问题？)
+  cloud:
+    nacos:
+      config:
+        group: mfs_nacos_demo
+        server-addr: 192.168.1.192:8848
+      discovery:
+        enabled: true
+        register-enabled: true
+        server-addr: 192.168.1.192:8848

@@ -1,0 +1,14 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: mfs-nacos-demo-provider
+  profiles:
+    active: @profileActive@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

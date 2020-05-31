@@ -6,7 +6,7 @@ package com.morefans.basic.core.constant;
 
 /**
  * http请求状态码常量
- * @author zibin
+ * @author tanxw
  */
 public interface HttpStatusConstants {
     /**

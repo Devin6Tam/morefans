@@ -88,7 +88,7 @@ public class ResponseResultManager {
      * @return
      */
 	public static<T> ResponseResult<T> setResult(Integer status, String msg, T result) {
-		return new ResponseResult<T>(status, msg, result);
+		return new ResponseResult<T> (status, msg, result);
 	}
 
     /**
