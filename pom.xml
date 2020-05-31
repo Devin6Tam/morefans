@@ -39,7 +39,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
-		<!--<alibaba-cloud.version>2.1.2.RELEASE</alibaba-cloud.version>-->
+<!--		<alibaba-cloud.version>2.1.2.RELEASE</alibaba-cloud.version>-->
 		<springboot.version>2.1.14.RELEASE</springboot.version>
 		<!-- springcloud 版本使用参考官网：https://spring.io/projects/spring-cloud -->
 		<springcloud.version>Greenwich.SR3</springcloud.version>
@@ -61,13 +61,14 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-dubbo</artifactId>
 		</dependency>
+
 
 		<!--Lombok -->
 		<dependency>
@@ -106,6 +107,9 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
 				<version>${spring-cloud-alibaba.version}</version>
+<!--				<groupId>com.alibaba.cloud</groupId>-->
+<!--				<artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+<!--				<version>${alibaba-cloud.version}</version>-->
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
