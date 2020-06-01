@@ -1,0 +1,2 @@
+1. 打包
+mvn clean package -Dmaven.skip=true -Pdev

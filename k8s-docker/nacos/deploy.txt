@@ -1,0 +1,9 @@
+1. 下载
+git clone https://github.com/nacos-group/nacos-docker.git
+
+2. 单机部署
+docker-compose -f example/standalone-mysql.yaml up
+
+3. k8s使用helm 部署
+https://github.com/nacos-group/nacos-k8s/tree/master/helm
+helm install nacos-dev ./nacos

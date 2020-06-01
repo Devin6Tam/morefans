@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mfs-trade
+  namespace: mfs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: mfs
+      app: mfs-trade
+  template:
+    metadata:
+      labels:
+        project: mfs
+        app: mfs-trade
+    spec:
+      imagePullSecrets:
+      - name: registry-pull-secret
+      containers:
+      - name: mfs-trade
+        image: 192.168.43.199/morefans/mfs-trade:2019-07-10-21-34-08
+        imagePullPolicy: Always
+        ports:
+          - protocol: TCP
+            containerPort: 8020
+        resources:
+          requests:
+            cpu: 0.5
+            memory: 256Mi
+          limits:
+            cpu: 1
+            memory: 1Gi
+        readinessProbe:
+          tcpSocket:
+            port: 8020
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8020
+          initialDelaySeconds: 60
+          periodSeconds: 10

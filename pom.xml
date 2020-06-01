@@ -25,9 +25,9 @@
 
 	<modules>
 		<module>basic-common</module>
-		<module>mfs-stars</module>
-		<module>mfs-trade</module>
-		<module>mfs-woods</module>
+		<!--<module>mfs-stars</module>-->
+		<!--<module>mfs-trade</module>-->
+		<!--<module>mfs-woods</module>-->
 		<module>mfs-activity</module>
 		<module>mfs-backend</module>
 		<module>mfs-api</module>
