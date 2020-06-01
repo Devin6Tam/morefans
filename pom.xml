@@ -129,13 +129,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
 				<version>${springboot.version}</version>
-				<exclusions>
-					<!--排除tomcat依赖 ,使用underom -->
-					<exclusion>
-						<artifactId>spring-boot-starter-tomcat</artifactId>
-						<groupId>org.springframework.boot</groupId>
-					</exclusion>
-				</exclusions>
+				<!-- 使用eureka 做注册中心时，用underom  -->
+<!--				<exclusions>-->
+<!--					&lt;!&ndash;排除tomcat依赖 ,使用underom &ndash;&gt;-->
+<!--					<exclusion>-->
+<!--						<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--						<groupId>org.springframework.boot</groupId>-->
+<!--					</exclusion>-->
+<!--				</exclusions>-->
 			</dependency>
 
 		</dependencies>
