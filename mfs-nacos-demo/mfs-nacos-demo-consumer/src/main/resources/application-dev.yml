@@ -6,4 +6,3 @@ dubbo:
   application:
     qos:
       enable: false
-

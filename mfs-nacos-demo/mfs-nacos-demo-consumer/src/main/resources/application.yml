@@ -9,7 +9,7 @@ spring:
     active: @profileActive@
   cloud:
     bootstrap:
-      # # 指定除了bootstray.yml以外的文件做加载配置
+      # 指定除了bootstray.yml以外的文件做加载配置
       name: bootstrap-@profileActive@
 
 management:
