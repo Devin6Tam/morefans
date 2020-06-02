@@ -1,10 +1,3 @@
-/**
- * 
- * LegendShop微服务商城系统
- * 
- * ©版权所有,并保留所有权利。
- * 
- */
 package com.morefans.gateway.server.config;
 
 import org.springframework.cloud.client.discovery.DiscoveryClient;

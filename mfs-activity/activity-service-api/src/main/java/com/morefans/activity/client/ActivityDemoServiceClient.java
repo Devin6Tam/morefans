@@ -1,7 +1,3 @@
-/**
- * LegendShop微服务商城系统
- * ©版权所有,并保留所有权利。
- */
 package com.morefans.activity.client;
 
 
@@ -14,9 +10,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 订单服务远程调用客户端
+ * 活动示例服务远程调用客户端
  *
- * @author zibin
+ * @author tanxw
  */
 @FeignClient(ActivityServiceNameConstant.ACTIVITY_DEMO_SERVICE)
 public interface ActivityDemoServiceClient {
