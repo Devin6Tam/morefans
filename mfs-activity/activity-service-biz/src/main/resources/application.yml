@@ -1,0 +1,18 @@
+server:
+  port: 8020
+spring:
+  profiles:
+    active: @profileActive@
+  application:
+    name: activity-service
+
+# 健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+swagger:
+  ebable: true
+  version: v1.0.0

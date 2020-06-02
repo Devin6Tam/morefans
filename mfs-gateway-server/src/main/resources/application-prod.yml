@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #开启以服务id去注册中心上获取转发地址
+          enabled: true
+          ##小写serviceId
+          lower-case-service-id: true
+      routes:
+        # 服务示例添加
+        - id: activity-service
+          uri: lb://activity-service
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/activity/**
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-0.eureka.ms:8888/eureka,http://eureka-1.eureka.ms:8888/eureka,http://eureka-2.eureka.ms:8888/eureka

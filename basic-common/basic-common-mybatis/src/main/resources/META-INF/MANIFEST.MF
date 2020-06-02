@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: spring-boot-starter-mybatis
+Implementation-Version: 0.0.1-SNAPSHOT
+Archiver-Version: Plexus Archiver
+Built-By: devintam
+Implementation-Vendor-Id: com.mzbloc.springboot
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_91
+Implementation-Vendor: Pivotal Software, Inc.
+

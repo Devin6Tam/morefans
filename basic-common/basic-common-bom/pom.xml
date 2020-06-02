@@ -26,9 +26,10 @@
 				<version>${morefans.version}</version>
 			</dependency>
 
+			<!-- 活动api接口 -->
 			<dependency>
 				<groupId>com.morefans</groupId>
-				<artifactId>mfs-nacos-demo-api</artifactId>
+				<artifactId>activity-service-api</artifactId>
 				<version>${morefans.version}</version>
 			</dependency>
 		</dependencies>

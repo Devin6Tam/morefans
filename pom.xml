@@ -31,15 +31,14 @@
 		<module>mfs-activity</module>
 		<module>mfs-backend</module>
 		<module>mfs-api</module>
-		<module>mfs-nacos-demo</module>
+		<module>mfs-eureka-server</module>
+		<module>mfs-gateway-server</module>
 	</modules>
 
 
 	<!-- 依赖jar版本 属性配置 -->
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
-<!--		<alibaba-cloud.version>2.1.2.RELEASE</alibaba-cloud.version>-->
 		<springboot.version>2.1.14.RELEASE</springboot.version>
 		<!-- springcloud 版本使用参考官网：https://spring.io/projects/spring-cloud -->
 		<springcloud.version>Greenwich.SR3</springcloud.version>
@@ -50,25 +49,16 @@
 
 	<!-- 公用依赖jar包，可以在父模块中指定 -->
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>com.alibaba.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-		<!--</dependency>-->
-
+		<!--eureka 客户端 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+		<!-- feignclient远程调用 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-dubbo</artifactId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-
 
 		<!--Lombok -->
 		<dependency>
@@ -102,14 +92,11 @@
 				<scope>import</scope>
 			</dependency>
 
-			<!-- SpringCloudAlibaba 依赖  -->
+			<!-- spring Cloud 依赖 -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-				<version>${spring-cloud-alibaba.version}</version>
-<!--				<groupId>com.alibaba.cloud</groupId>-->
-<!--				<artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--				<version>${alibaba-cloud.version}</version>-->
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${springcloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -129,14 +116,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
 				<version>${springboot.version}</version>
-				<!-- 使用eureka 做注册中心时，用underom  -->
-<!--				<exclusions>-->
-<!--					&lt;!&ndash;排除tomcat依赖 ,使用underom &ndash;&gt;-->
-<!--					<exclusion>-->
-<!--						<artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--						<groupId>org.springframework.boot</groupId>-->
-<!--					</exclusion>-->
-<!--				</exclusions>-->
+				<exclusions>
+					<!--排除tomcat依赖 ,使用underom -->
+					<exclusion>
+						<artifactId>spring-boot-starter-tomcat</artifactId>
+						<groupId>org.springframework.boot</groupId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 		</dependencies>
@@ -178,9 +164,10 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
-				<!--<includes>-->
-				<!--<include>application-${profileActive}.yml</include>-->
-				<!--</includes>-->
+				<includes>
+					<include>application.yml</include>
+					<include>application-${profileActive}.yml</include>
+				</includes>
 			</resource>
 		</resources>
 		<pluginManagement>
