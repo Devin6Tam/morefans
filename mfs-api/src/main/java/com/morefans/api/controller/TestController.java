@@ -44,7 +44,7 @@ public class TestController{
      * @param
      * @return
      */
-    @GetMapping("/demo/update")
+    @PutMapping("/demo/update")
     public ResponseResult<Object> updateDemo(@RequestBody ActivityDemoBaseRequestVo requestVo){
         log.info("获取活动示例，id为：{}",requestVo.getId());
         return activityDemoServiceClient.updateDemo(requestVo);
