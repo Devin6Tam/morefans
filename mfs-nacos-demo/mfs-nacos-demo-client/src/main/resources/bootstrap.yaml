@@ -1,0 +1,18 @@
+dubbo:
+  cloud:
+    subscribed-services: mfs-nacos-demo-server
+
+spring:
+  application:
+    name: mfs-nacos-demo-client
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.1.192:8848
+
+server:
+  port: 8083

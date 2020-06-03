@@ -1,25 +1,27 @@
+dubbo:
+  scan:
+    base-packages: com.morefans.mfs_nacos_demo.service
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+#  rest:
+#    name: rest
+#    port: 9090
+#    server: netty
+  registries:
+    address: spring-cloud://localhost
+
+feign:
+  hystrix:
+    enabled: true
+
+
 server:
-  port: 9005
-
-
-spring:
-  application:
-    name: mfs-nacos-demo-provider
-  profiles:
-    # 指定除了application.yml以外的文件做加载配置
-    active: @profileActive@
-  cloud:
-    bootstrap:
-      #  指定除了bootstray.yml以外的文件做加载配置
-      name: bootstrap-@profileActive@
-
-
-# 等同于如开发环境下 java -jar  xxx.jar --spring.profiles.active=dev --spring.cloud.bootstrap.name=bootstrap-dev 的效果
-
-
+  port: 8081
 
 management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: dubborestmetadata

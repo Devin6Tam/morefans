@@ -1,0 +1,21 @@
+dubbo:
+  scan:
+    base-packages: com.morefans.mfs_nacos_demo_server
+  protocol:
+    name: dubbo
+    port: -1
+
+spring:
+  application:
+    name: mfs-nacos-demo-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.1.192:8848
+
+server:
+  port: 8082

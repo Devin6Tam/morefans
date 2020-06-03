@@ -1,12 +1,16 @@
 spring:
+  application:
+    name: mfs-naos-demo-consumer
   main:
     allow-bean-definition-overriding: true
+
+
+  # default disable all
   cloud:
     nacos:
       discovery:
-        enabled: true
+        enabled: false
         register-enabled: false
-        server-addr: 192.168.1.192:8848
     zookeeper:
       enabled: false
     consul:
@@ -19,3 +23,16 @@ eureka:
 ribbon:
   nacos:
     enabled: false
+
+---
+spring:
+  profiles: nacos
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        enabled: true
+        register-enabled: true
+        server-addr: 192.168.1.192:8848

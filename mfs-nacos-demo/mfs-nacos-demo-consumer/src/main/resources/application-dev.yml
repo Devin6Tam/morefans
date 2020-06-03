@@ -1,8 +1,0 @@
-dubbo:
-  registry:
-    address: spring-cloud://localhost
-  cloud:
-    subscribed-services: mfs-nacos-demo-provider # 订阅服务，与nacos中的服务名称一致
-  application:
-    qos:
-      enable: false

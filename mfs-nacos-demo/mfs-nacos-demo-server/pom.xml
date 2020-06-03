@@ -7,31 +7,20 @@
         <artifactId>mfs-nacos-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>mfs-nacos-demo-provider</artifactId>
-    <name>mfs-nacos-demo-provider</name>
-    <description>nacos 提供者示例</description>
+    <groupId>com.morefans</groupId>
+    <artifactId>mfs-nacos-demo-server</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>mfs-nacos-demo-server</name>
+    <description>nacos 服务</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- Spring Cloud Open Feign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!-- Spring Retry -->
-        <dependency>
-            <groupId>org.springframework.retry</groupId>
-            <artifactId>spring-retry</artifactId>
         </dependency>
 
         <!-- Dubbo Spring Cloud Starter -->
@@ -50,15 +39,15 @@
 
 
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
+            <groupId>com.morefans</groupId>
+            <artifactId>basic-common-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.morefans</groupId>
             <artifactId>mfs-nacos-demo-api</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

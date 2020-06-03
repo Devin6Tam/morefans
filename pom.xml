@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-build</artifactId>
+		<version>2.1.11.RELEASE</version>
+		<relativePath/>
+	</parent>
 	<groupId>com.morefans</groupId>
 	<artifactId>mfs</artifactId>
 	<packaging>pom</packaging>
@@ -38,14 +44,35 @@
 	<!-- 依赖jar版本 属性配置 -->
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
-<!--		<alibaba-cloud.version>2.1.2.RELEASE</alibaba-cloud.version>-->
-		<springboot.version>2.1.14.RELEASE</springboot.version>
-		<!-- springcloud 版本使用参考官网：https://spring.io/projects/spring-cloud -->
-		<springcloud.version>Greenwich.SR3</springcloud.version>
+		<alibaba-cloud.version>2.1.2.RELEASE</alibaba-cloud.version>
+
+		<!-- Dependency Versions -->
+		<spring-cloud-commons.version>2.1.5.RELEASE</spring-cloud-commons.version>
+		<spring-cloud-config.version>2.1.7.RELEASE</spring-cloud-config.version>
+		<spring-cloud-consul.version>2.1.5.RELEASE</spring-cloud-consul.version>
+		<spring-cloud-gateway.version>2.1.5.RELEASE</spring-cloud-gateway.version>
+		<spring-cloud-netflix.version>2.1.5.RELEASE</spring-cloud-netflix.version>
+		<spring-cloud-openfeign.version>2.1.5.RELEASE</spring-cloud-openfeign.version>
+		<spring-cloud-bus.version>2.1.4.RELEASE</spring-cloud-bus.version>
+		<spring-cloud-stream.version>Fishtown.SR4</spring-cloud-stream.version>
+		<spring-cloud-zookeeper.version>2.1.4.RELEASE</spring-cloud-zookeeper.version>
+		<springboot.version>2.1.11.RELEASE</springboot.version>
+
+		<junit.version>5.12</junit.version>
+		<javax-servlet-api>3.0</javax-servlet-api>
+		<slf4j-api.version>1.7.25</slf4j-api.version>
+
+		<!-- Apache Dubbo -->
+		<dubbo.version>2.7.6</dubbo.version>
+		<curator.version>4.0.1</curator.version>
+
+		<!-- Apache RocketMQ -->
+		<rocketmq.starter.version>2.0.2</rocketmq.starter.version>
+
 		<hutool.version>4.5.13</hutool.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven-compiler-plugin>3.8.0</maven-compiler-plugin>
 	</properties>
 
 	<!-- 公用依赖jar包，可以在父模块中指定 -->
@@ -54,21 +81,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>com.alibaba.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-		<!--</dependency>-->
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-dubbo</artifactId>
-		</dependency>
-
 
 		<!--Lombok -->
 		<dependency>
@@ -77,17 +89,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 	</dependencies>
 
 	<!-- 依赖资源包管理 -->
@@ -104,12 +105,9 @@
 
 			<!-- SpringCloudAlibaba 依赖  -->
 			<dependency>
-				<groupId>org.springframework.cloud</groupId>
+				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-				<version>${spring-cloud-alibaba.version}</version>
-<!--				<groupId>com.alibaba.cloud</groupId>-->
-<!--				<artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--				<version>${alibaba-cloud.version}</version>-->
+				<version>${alibaba-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -139,6 +137,113 @@
 <!--				</exclusions>-->
 			</dependency>
 
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-commons-dependencies</artifactId>
+				<version>${spring-cloud-commons.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-test-support</artifactId>
+				<scope>test</scope>
+				<version>${spring-cloud-commons.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-netflix-dependencies</artifactId>
+				<version>${spring-cloud-netflix.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-openfeign-dependencies</artifactId>
+				<version>${spring-cloud-openfeign.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-config-dependencies</artifactId>
+				<version>${spring-cloud-config.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-bus-dependencies</artifactId>
+				<version>${spring-cloud-bus.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-gateway-dependencies</artifactId>
+				<version>${spring-cloud-gateway.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-stream-dependencies</artifactId>
+				<version>${spring-cloud-stream.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-dependencies-bom</artifactId>
+				<version>${dubbo.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-framework-bom</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-spring-boot-actuator</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.rocketmq</groupId>
+				<artifactId>rocketmq-spring-boot-starter</artifactId>
+				<version>${rocketmq.starter.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -202,7 +307,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>${maven-compiler-plugin}</version>
 				<configuration>
 					<target>${maven.compiler.target}</target>
 					<source>${maven.compiler.source}</source>

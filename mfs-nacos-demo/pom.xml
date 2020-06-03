@@ -16,6 +16,7 @@
         <module>mfs-nacos-demo-api</module>
         <module>mfs-nacos-demo-provider</module>
         <module>mfs-nacos-demo-consumer</module>
+        <module>mfs-nacos-demo-server</module>
     </modules>
 
     <properties>

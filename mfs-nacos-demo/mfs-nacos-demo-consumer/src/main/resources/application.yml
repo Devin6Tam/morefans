@@ -1,19 +1,21 @@
-server:
-  port: 9006
-
-spring:
-  application:
-    name: mfs-nacos-demo-consumer
-  profiles:
-    # 指定除了application.yml以外的文件做加载配置
-    active: @profileActive@
+dubbo:
+#  registry:
+#    #   The Spring Cloud Dubbo's registry extension
+#    ##  the default value of dubbo-provider-services is "*", that means to subscribe all providers,
+#    ##  thus it's optimized if subscriber specifies the required providers.
+#    address: spring-cloud://localhost
+#  #   The traditional Dubbo's registry also is supported
+#  #   address: zookeeper://127.0.0.1:2181
   cloud:
-    bootstrap:
-      # 指定除了bootstray.yml以外的文件做加载配置
-      name: bootstrap-@profileActive@
+    # The subscribed services in consumer side
+    subscribed-services: ${provider.application.name}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+  consumer:
+    check: false
+
+server:
+  port: 8084
+
+provider:
+  application:
+    name: mfs-nacos-demo-provider
