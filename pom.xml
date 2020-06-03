@@ -39,9 +39,8 @@
 	<!-- 依赖jar版本 属性配置 -->
 	<properties>
 		<java.version>1.8</java.version>
-		<springboot.version>2.1.14.RELEASE</springboot.version>
-		<!-- springcloud 版本使用参考官网：https://spring.io/projects/spring-cloud -->
-		<springcloud.version>Greenwich.SR3</springcloud.version>
+		<springboot.version>2.0.9.RELEASE</springboot.version>
+		<springcloud.version>Finchley.SR2</springcloud.version>
 		<hutool.version>4.5.13</hutool.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -164,10 +163,10 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
-				<includes>
-					<include>application.yml</include>
-					<include>application-${profileActive}.yml</include>
-				</includes>
+				<!--<includes>-->
+					<!--<include>application.yml</include>-->
+					<!--<include>application-${profileActive}.yml</include>-->
+				<!--</includes>-->
 			</resource>
 		</resources>
 		<pluginManagement>

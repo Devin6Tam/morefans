@@ -22,16 +22,16 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@PostMapping("activity/demo/save")
-	ResponseResult<String> saveDemo(@RequestBody ActivityDemoBaseRequestVo requestVo);
+	@PostMapping("/activity/demo/save")
+	ResponseResult<Object> saveDemo(@RequestBody ActivityDemoBaseRequestVo requestVo);
 
 	/**
 	 * 修改单个活动示例
 	 * @param
 	 * @return
 	 */
-	@GetMapping("activity/demo/modify/{id}")
-	ResponseResult<String> updateDemo(@PathVariable("id") Long id);
+	@GetMapping("/activity/demo/update")
+	ResponseResult<Object> updateDemo(@RequestBody ActivityDemoBaseRequestVo requestVo);
 
 
 	/**
@@ -48,16 +48,16 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@DeleteMapping("activity/demo/delete/more")
-	ResponseResult<String> deleteDemo(@RequestParam String ids);
+	@DeleteMapping("/activity/demo/delete/more")
+	ResponseResult<Object> deleteDemo(@RequestParam(name = "ids",required = true) String ids);
 
 	/**
 	 * 获取单个活动示例
 	 * @param
 	 * @return
 	 */
-	@GetMapping("activity/demo/{id}")
-	ResponseResult<String> getDemo(@PathVariable("id") Long id);
+	@GetMapping("/activity/demo/{id}")
+	ResponseResult<Object> getDemo(@PathVariable("id") Long id);
 
 
 	/**
@@ -65,6 +65,6 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@GetMapping("activity/demo/list")
-	ResponseResult<String> listDemo(@RequestParam ActivityDemoBaseSearchVo searchVo);
+	@GetMapping("/activity/demo/list")
+	ResponseResult<Object> listDemo(ActivityDemoBaseSearchVo searchVo);
 }

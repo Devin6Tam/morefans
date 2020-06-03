@@ -1,4 +1,4 @@
-package com.morefans.activity.config;
+package com.morefans.activity.autoconfig;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

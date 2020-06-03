@@ -2,7 +2,7 @@ package com.morefans.mybatis.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
-import com.mzbloc.springboot.mybatis.properties.MybatisProperties;
+import com.morefans.mybatis.properties.MybatisProperties;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.ExecutorType;

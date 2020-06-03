@@ -1,10 +1,10 @@
 server:
-  port: 8020
+  port: 8086
 spring:
   profiles:
     active: @profileActive@
   application:
-    name: activity-demo-service
+    name: mfs-api
 
 management:
   endpoints:

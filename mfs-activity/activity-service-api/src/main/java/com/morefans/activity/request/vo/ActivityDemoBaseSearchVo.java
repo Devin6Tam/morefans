@@ -10,10 +10,30 @@ import lombok.Data;
 @Data
 public class ActivityDemoBaseSearchVo extends BaseVo {
 
-    private int beginTicket;
+    /**
+     * 范围  开始票数
+     */
+    private Integer beginTicket;
 
-    private int endTicket;
+    /**
+     * 范围  结束票数
+     */
+    private Integer endTicket;
 
+    /**
+     * 信息
+     */
     private String message;
+
+    /**
+     * 当前页
+     */
+    private Integer pageNum = 1;
+
+
+    /**
+     * 当前大小
+     */
+    private Integer pageSize= 10;
 
 }
