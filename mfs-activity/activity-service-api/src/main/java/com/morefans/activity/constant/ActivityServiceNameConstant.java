@@ -7,7 +7,7 @@ package com.morefans.activity.constant;
 public interface ActivityServiceNameConstant {
 
 	/**
-	 * 活动示例服务
+	 * 活动服务
 	 */
-	String ACTIVITY_DEMO_SERVICE = "activity-demo-service";
+	String ACTIVITY_SERVICE = "activity-service";
 }

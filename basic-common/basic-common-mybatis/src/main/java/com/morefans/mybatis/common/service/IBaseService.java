@@ -6,6 +6,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 /**
+ * 基础业务接口
  * Created by tanxw on 2017/3/30.
  */
 public interface IBaseService<T> {
@@ -63,17 +64,39 @@ public interface IBaseService<T> {
     int updateByExample(T var1, Example var2);
 
     /**
-     *
+     * 查询列表
      * @param var1
      * @return
      */
     List<T> selectByList(Object var1);
 
+    /**
+     * 分页查询
+     * 调用前，请先使用PageHelper.startPage(pageNum,pageSize)
+     * 原理实现请查看：https://www.cnblogs.com/dengpengbo/p/10579631.html
+     * @param var1
+     * @return
+     */
     PageInfo<T> selectByPage(Object var1);
 
+    /**
+     * 计数
+     * @param var1
+     * @return
+     */
     int countByExample(Example var1);
 
+    /**
+     * 删除 慎用
+     * @param var1
+     * @return
+     */
     int deleteByExample(Example var1);
 
+    /**
+     * 查询单个对象
+     * @param var1
+     * @return
+     */
     T selectOne(Example var1);
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author tanxw
  */
-@FeignClient(ActivityServiceNameConstant.ACTIVITY_DEMO_SERVICE)
+@FeignClient(ActivityServiceNameConstant.ACTIVITY_SERVICE)
 public interface ActivityDemoServiceClient {
 
 	/**
@@ -22,7 +22,7 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@PostMapping("/activity/demo/save")
+	@PostMapping("/demo/save")
 	ResponseResult<Object> saveDemo(@RequestBody ActivityDemoBaseRequestVo requestVo);
 
 	/**
@@ -30,7 +30,7 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@GetMapping("/activity/demo/update")
+	@GetMapping("/demo/update")
 	ResponseResult<Object> updateDemo(@RequestBody ActivityDemoBaseRequestVo requestVo);
 
 
@@ -39,7 +39,7 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@PutMapping("/activity/demo/delete/{id}")
+	@PutMapping("/demo/delete/{id}")
 	ResponseResult<String> deleteDemo(@PathVariable("id") Long id);
 
 
@@ -48,7 +48,7 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@DeleteMapping("/activity/demo/delete/more")
+	@DeleteMapping("/demo/delete/more")
 	ResponseResult<Object> deleteDemo(@RequestParam(name = "ids",required = true) String ids);
 
 	/**
@@ -56,7 +56,7 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@GetMapping("/activity/demo/{id}")
+	@GetMapping("/demo/{id}")
 	ResponseResult<Object> getDemo(@PathVariable("id") Long id);
 
 
@@ -65,6 +65,6 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@GetMapping("/activity/demo/list")
+	@GetMapping("/demo/list")
 	ResponseResult<Object> listDemo(ActivityDemoBaseSearchVo searchVo);
 }

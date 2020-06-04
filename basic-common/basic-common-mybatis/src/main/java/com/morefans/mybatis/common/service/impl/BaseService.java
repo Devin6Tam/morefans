@@ -3,6 +3,7 @@ package com.morefans.mybatis.common.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.morefans.mybatis.common.service.IBaseService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
@@ -10,6 +11,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 /**
+ * 基础业务实现
  * Created by tanxw on 2017/3/30.
  */
 public class BaseService<T> implements IBaseService<T> {

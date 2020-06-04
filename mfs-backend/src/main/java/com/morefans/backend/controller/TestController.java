@@ -1,4 +1,4 @@
-package com.morefans.api.controller;
+package com.morefans.backend.controller;
 
 import com.morefans.activity.client.ActivityDemoServiceClient;
 import com.morefans.activity.request.vo.ActivityDemoBaseRequestVo;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1")
+@RequestMapping("backend")
 @Slf4j
 public class TestController{
 

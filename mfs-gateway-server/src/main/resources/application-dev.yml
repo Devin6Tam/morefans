@@ -3,9 +3,9 @@ spring:
     gateway:
       discovery:
         locator:
-          #开启以服务id去注册中心上获取转发地址
+          # 开启以服务id去注册中心上获取转发地址
           enabled: true
-          ##小写serviceId
+          # 小写serviceId
           lower-case-service-id: true
       routes:
         # 服务示例添加

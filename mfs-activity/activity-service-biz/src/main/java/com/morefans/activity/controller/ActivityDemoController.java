@@ -28,7 +28,7 @@ import java.util.List;
  */
 @Api(description = "关于活动示例接口",value = "活动示例接口",tags = {"活动示例接口"})
 @RestController
-@RequestMapping("activity")
+@RequestMapping("demo")
 @AllArgsConstructor
 @Slf4j
 public class ActivityDemoController{
@@ -41,7 +41,7 @@ public class ActivityDemoController{
      * @param
      * @return
      */
-    @PostMapping("demo/save")
+    @PostMapping("save")
     @ApiOperation(value = "保存活动示例",notes = "RestFul风格，需要传活动示例对象")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "diamond",value = "活动示例个数",required = true),
@@ -58,7 +58,7 @@ public class ActivityDemoController{
      * @param
      * @return
      */
-    @PutMapping("demo/modify")
+    @PutMapping("modify")
     @ApiOperation(value = "修改活动示例",notes = "RestFul风格，需要传活动示例对象")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "diamond",value = "活动示例个数",required = true),
@@ -78,7 +78,7 @@ public class ActivityDemoController{
      * @param
      * @return
      */
-    @DeleteMapping("demo/delete/{id}")
+    @DeleteMapping("delete/{id}")
     @ApiOperation(value = "删除活动示例",notes = "RestFul风格，需要传活动示例Id")
     @ApiImplicitParam(name = "id",value = "活动示例Id",required = true)
     public ResponseResult<String> deleteDemo(@PathVariable("id") Long id){
@@ -95,7 +95,7 @@ public class ActivityDemoController{
      * @param
      * @return
      */
-    @DeleteMapping("demo/delete/more")
+    @DeleteMapping("delete/more")
     @ApiOperation(value = "删除多个活动示例",notes = "RestFul风格，需要传活动示例ids")
     @ApiImplicitParam(name = "ids",value = "活动示例ids",required = true)
     public ResponseResult<String> deleteDemo(@RequestParam String ids,@RequestParam(defaultValue = "1") Integer requestNumber){
@@ -116,7 +116,7 @@ public class ActivityDemoController{
      * @param
      * @return
      */
-    @GetMapping("demo/{id}")
+    @GetMapping("{id}")
     @ApiOperation(value = "获取单个活动示例",notes = "RestFul风格，需要传活动示例id")
     @ApiImplicitParam(name = "id",value = "活动示例id",required = true)
     public ResponseResult<ActivityDemo> getDemo(@PathVariable("id") Long id){
@@ -131,7 +131,7 @@ public class ActivityDemoController{
      * @param
      * @return
      */
-    @GetMapping("demo/list")
+    @GetMapping("list")
     @ApiOperation(value = "获取活动示例列表",notes = "RestFul风格，需要传查询条件")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "beginTicket",value = "开始票数",required = false),
