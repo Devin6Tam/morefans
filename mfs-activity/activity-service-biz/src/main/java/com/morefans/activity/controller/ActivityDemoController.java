@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +28,10 @@ import java.util.List;
  */
 @Api(description = "关于活动示例接口",value = "活动示例接口",tags = {"活动示例接口"})
 @RestController
+@RequestMapping("activity")
 @AllArgsConstructor
-public class ActivityDemoController implements BaseController{
+@Slf4j
+public class ActivityDemoController{
 
     @Autowired
     IActivityDemoService activityDemoService;
@@ -63,7 +66,7 @@ public class ActivityDemoController implements BaseController{
             @ApiImplicitParam(name = "message",value = "活动示例信息",required = true),
     })
     public ResponseResult<String> updateDemo(@RequestBody ActivityDemoBaseRequestVo requestVo){
-        logger.info("更新活动示例，id为：{}",requestVo.getId());
+        log.info("更新活动示例，id为：{}",requestVo.getId());
         activityDemoService.updateNotNull(requestVo);
         return ResponseResultManager.setResultMsgSuccess("更新成功");
     }
@@ -79,7 +82,7 @@ public class ActivityDemoController implements BaseController{
     @ApiOperation(value = "删除活动示例",notes = "RestFul风格，需要传活动示例Id")
     @ApiImplicitParam(name = "id",value = "活动示例Id",required = true)
     public ResponseResult<String> deleteDemo(@PathVariable("id") Long id){
-        logger.info("删除活动示例，id为：{}",id);
+        log.info("删除活动示例，id为：{}",id);
         ActivityDemo activityDemo = activityDemoService.selectByKey(id);
         activityDemoService.delete(activityDemo);
         return ResponseResultManager.setResultMsgSuccess("删除成功");
@@ -96,7 +99,7 @@ public class ActivityDemoController implements BaseController{
     @ApiOperation(value = "删除多个活动示例",notes = "RestFul风格，需要传活动示例ids")
     @ApiImplicitParam(name = "ids",value = "活动示例ids",required = true)
     public ResponseResult<String> deleteDemo(@RequestParam String ids,@RequestParam(defaultValue = "1") Integer requestNumber){
-        logger.info("删除活动示例，id为：{}",ids);
+        log.info("删除活动示例，id为：{}",ids);
         String [] keys = ids.split(",");
         if(keys.length > 20){
             return ResponseResultManager.setResultError("删除数量过大...");
@@ -117,7 +120,7 @@ public class ActivityDemoController implements BaseController{
     @ApiOperation(value = "获取单个活动示例",notes = "RestFul风格，需要传活动示例id")
     @ApiImplicitParam(name = "id",value = "活动示例id",required = true)
     public ResponseResult<ActivityDemo> getDemo(@PathVariable("id") Long id){
-        logger.info("获取活动示例，id为：{}",id);
+        log.info("获取活动示例，id为：{}",id);
         ActivityDemo activityDemo = activityDemoService.selectByKey(id);
         return ResponseResultManager.setResultSuccess(activityDemo);
     }

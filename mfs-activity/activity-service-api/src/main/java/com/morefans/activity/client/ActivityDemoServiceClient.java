@@ -39,7 +39,7 @@ public interface ActivityDemoServiceClient {
 	 * @param
 	 * @return
 	 */
-	@PutMapping("activity/demo/delete/{id}")
+	@PutMapping("/activity/demo/delete/{id}")
 	ResponseResult<String> deleteDemo(@PathVariable("id") Long id);
 
 

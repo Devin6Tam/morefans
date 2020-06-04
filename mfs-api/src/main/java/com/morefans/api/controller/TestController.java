@@ -1,16 +1,10 @@
 package com.morefans.api.controller;
 
 import com.morefans.activity.client.ActivityDemoServiceClient;
-import com.morefans.activity.entity.ActivityDemo;
 import com.morefans.activity.request.vo.ActivityDemoBaseRequestVo;
-import com.morefans.basic.core.base.BaseController;
-import com.morefans.basic.core.base.ResponseResultManager;
 import com.morefans.basic.core.util.ResponseResult;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -19,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping("activity")
 @Slf4j
 public class TestController{
 
