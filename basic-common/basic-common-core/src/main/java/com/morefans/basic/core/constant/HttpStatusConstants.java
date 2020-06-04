@@ -1,7 +1,3 @@
-/**
- * <p>Company: http://www.ctnrs.com</p>
- * <p>Copyright: Copyright (c) 2019</p>
- */
 package com.morefans.basic.core.constant;
 
 /**

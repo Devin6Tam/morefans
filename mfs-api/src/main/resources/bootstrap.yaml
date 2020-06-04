@@ -1,0 +1,15 @@
+dubbo:
+  cloud:
+    subscribed-services: activity-service
+
+spring:
+  application:
+    name: mfs-api
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.43.199:8848

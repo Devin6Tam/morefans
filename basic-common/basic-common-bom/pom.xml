@@ -26,9 +26,37 @@
 				<version>${morefans.version}</version>
 			</dependency>
 
+			<!-- mybatis公共库 -->
+			<dependency>
+				<groupId>com.morefans</groupId>
+				<artifactId>basic-common-mybatis</artifactId>
+				<version>${morefans.version}</version>
+			</dependency>
+
+			<!-- swagger公共库 -->
+			<dependency>
+				<groupId>com.morefans</groupId>
+				<artifactId>basic-common-swagger</artifactId>
+				<version>${morefans.version}</version>
+			</dependency>
+
+			<!-- 活动api接口 -->
+			<dependency>
+				<groupId>com.morefans</groupId>
+				<artifactId>activity-service-api</artifactId>
+				<version>${morefans.version}</version>
+			</dependency>
+
+			<!-- nacos demo api接口 -->
 			<dependency>
 				<groupId>com.morefans</groupId>
 				<artifactId>mfs-nacos-demo-api</artifactId>
+				<version>${morefans.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.morefans</groupId>
+				<artifactId>backend-service-api</artifactId>
 				<version>${morefans.version}</version>
 			</dependency>
 		</dependencies>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: basic-common-swagger
+Implementation-Version: 0.0.1-SNAPSHOT
+Archiver-Version: Plexus Archiver
+Built-By: tanxw
+Implementation-Vendor-Id: com.morefans.swagger
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_91
+Implementation-Vendor: Pivotal Software, Inc.
+

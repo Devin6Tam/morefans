@@ -11,10 +11,6 @@
     <name>mfs-nacos-demo-consumer</name>
     <description>nacos 消费者示例</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
 
         <dependency>

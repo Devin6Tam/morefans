@@ -15,5 +15,7 @@
 	<modules>
 		<module>basic-common-bom</module>
 		<module>basic-common-core</module>
+		<module>basic-common-mybatis</module>
+		<module>basic-common-swagger</module>
 	</modules>
 </project>

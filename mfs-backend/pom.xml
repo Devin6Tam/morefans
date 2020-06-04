@@ -10,18 +10,14 @@
     <artifactId>mfs-backend</artifactId>
     <packaging>pom</packaging>
     <description>后台管理平台</description>
+    <modules>
+        <module>backend-service-api</module>
+        <module>backend-service-biz</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <!-- 模块跳过部署到仓库中 -->
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.morefans</groupId>
-            <artifactId>basic-common-core</artifactId>
-        </dependency>
-    </dependencies>
-
 </project>
