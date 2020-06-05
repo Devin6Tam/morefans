@@ -1,0 +1,106 @@
+{
+  "groups": [
+    {
+      "name": "morefans.mybatis",
+      "type": "com.morefans.common.mybatis.properties.MybatisProperties",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis",
+      "type": "com.morefans.common.mybatis.properties.MybatisProperties",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "morefans.mybatis.check-config-location",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.check-config-location",
+      "type": "java.lang.Boolean",
+      "description": "Check the config file exists.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "morefans.mybatis.config-location",
+      "type": "java.lang.String",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.config-location",
+      "type": "java.lang.String",
+      "description": "Config file path.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.configuration",
+      "type": "org.apache.ibatis.session.Configuration",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.configuration",
+      "type": "org.apache.ibatis.session.Configuration",
+      "description": "A Configuration object for customize default settings. If {@link #configLocation}\n is specified, this property is not used.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.executor-type",
+      "type": "org.apache.ibatis.session.ExecutorType",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "mybatis.executor-type",
+      "type": "org.apache.ibatis.session.ExecutorType",
+      "description": "Execution mode for {@link org.mybatis.spring.SqlSessionTemplate}.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.mapper-location",
+      "type": "java.lang.String",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.mapper-location",
+      "type": "java.lang.String",
+      "description": "Location of mybatis mapper files.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.type-aliases-package",
+      "type": "java.lang.String",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.type-aliases-package",
+      "type": "java.lang.String",
+      "description": "Package to scan domain objects.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.mapper-package",
+      "type": "java.lang.String",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.mapper-package",
+      "type": "java.lang.String",
+      "description": "Package to scan domain objects.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.type-handlers-package",
+      "type": "java.lang.String",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    },
+    {
+      "name": "morefans.mybatis.type-handlers-package",
+      "type": "java.lang.String",
+      "description": "Package to scan handlers.",
+      "sourceType": "com.morefans.common.mybatis.properties.MybatisProperties"
+    }
+  ],
+  "hints": []
+}
