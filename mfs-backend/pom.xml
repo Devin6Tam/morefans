@@ -6,6 +6,7 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>mfs-backend</artifactId>
     <packaging>pom</packaging>
@@ -13,6 +14,7 @@
     <modules>
         <module>backend-service-api</module>
         <module>backend-service-biz</module>
+        <module>backend-manager-api</module>
     </modules>
 
     <properties>

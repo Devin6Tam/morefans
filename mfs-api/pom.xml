@@ -6,6 +6,7 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>mfs-api</artifactId>
     <!--<packaging>pom</packaging>-->
@@ -17,11 +18,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.morefans</groupId>
-            <artifactId>basic-common-core</artifactId>
-        </dependency>
-
         <!--web 模块 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,22 +34,10 @@
             <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
 
-
         <!-- 单元测试 模块 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-
-        <!-- JDBC 驱动相关 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <!-- 健康检查 -->
@@ -62,28 +46,70 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- swagger 在线渲染接口信息 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-
         <!--undertow容器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
-        <!-- 活动服务接口包  -->
+        <!-- jdbc驱动 -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-jdbc</artifactId>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>${mysql.driver.version}</version>-->
+        <!--</dependency>-->
+
+        <!-- 公共组件库 依赖 -->
+        <dependency>
+            <groupId>com.morefans</groupId>
+            <artifactId>basic-common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.morefans</groupId>
+            <artifactId>basic-common-swagger</artifactId>
+        </dependency>
+
+        <!-- 其他微服务模块api 依赖 -->
+        <!-- 活动api接口 -->
         <dependency>
             <groupId>com.morefans</groupId>
             <artifactId>activity-service-api</artifactId>
+        </dependency>
+
+        <!-- 管理后台服务api -->
+        <dependency>
+            <groupId>com.morefans</groupId>
+            <artifactId>backend-service-api</artifactId>
+        </dependency>
+
+        <!-- 明星社圈服务api -->
+        <dependency>
+            <groupId>com.morefans</groupId>
+            <artifactId>stars-service-api</artifactId>
+        </dependency>
+
+        <!-- 交易端服务api -->
+        <dependency>
+            <groupId>com.morefans</groupId>
+            <artifactId>trade-service-api</artifactId>
         </dependency>
     </dependencies>
 

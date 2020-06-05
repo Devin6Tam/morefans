@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.morefans</groupId>
+		<artifactId>mfs-trade</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>trade-service-biz</artifactId>
+	<name>trade-service-biz</name>
+	<description>交易端服务</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<!--web 模块 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- alibba 产品系列 -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-dubbo</artifactId>
+		</dependency>
+
+		<!-- 单元测试 模块 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+
+		<!-- 健康检查 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!--undertow容器 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+
+		<!-- jdbc驱动 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.driver.version}</version>
+		</dependency>
+
+		<!-- 公共组件库 依赖 -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>basic-common-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>basic-common-mybatis</artifactId>
+		</dependency>
+
+		<!-- 其他微服务模块api 依赖 -->
+		<!-- 活动api接口 -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>activity-service-api</artifactId>
+		</dependency>
+
+		<!-- 管理后台服务api -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>backend-service-api</artifactId>
+		</dependency>
+
+		<!-- 明星社圈服务api -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>stars-service-api</artifactId>
+		</dependency>
+
+		<!-- 交易端服务api -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>trade-service-api</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>${maven.compiler.encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

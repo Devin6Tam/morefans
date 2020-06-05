@@ -1,0 +1,17 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: @profileActive@
+  application:
+    name: backend-manager-api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+swagger:
+  ebable: true
+  version: v1.0

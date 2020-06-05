@@ -1,4 +1,4 @@
-package com.morefans.backend.bootstrap;
+package com.morefans.backend.autoconfig;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;

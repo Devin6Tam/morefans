@@ -1,20 +1,20 @@
-package com.morefans.backend.bootstrap;
+package com.morefans.trade;
 
 import com.morefans.common.mybatis.common.mapper.BaseMapper;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @EnableDiscoveryClient
-@EnableAutoConfiguration
-@MapperScan(basePackages = "com.morefans.backend.mapper",
+@SpringBootApplication
+@MapperScan(basePackages = "com.morefans.trade.mapper",
 		markerInterface= BaseMapper.class,nameGenerator= BeanNameGenerator.class)
-public class BackendServiceApplication {
+public class TradeServiceBizApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendServiceApplication.class, args);
+		SpringApplication.run(TradeServiceBizApplication.class, args);
 	}
 
 }

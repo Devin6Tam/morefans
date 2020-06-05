@@ -6,12 +6,11 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs-nacos-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
-    <groupId>com.morefans</groupId>
     <artifactId>mfs-nacos-demo-client</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>mfs-nacos-demo-client</name>
-    <description>Demo project for Spring Boot</description>
+    <description>nacos 示例客户端 </description>
 
     <properties>
         <java.version>1.8</java.version>

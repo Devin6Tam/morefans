@@ -1,0 +1,18 @@
+dubbo:
+  scan:
+    base-packages: com.morefans.backend
+  cloud:
+    subscribed-services: activity-service,trade-service,stars-service
+  protocol:
+    name: dubbo
+    port: -1
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.43.199:8848

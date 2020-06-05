@@ -6,6 +6,7 @@
 		<groupId>com.morefans</groupId>
 		<artifactId>basic-common</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+
 	</parent>
 
 	<artifactId>basic-common-core</artifactId>
@@ -16,6 +17,12 @@
 			<groupId>cn.hutool</groupId>
 			<artifactId>hutool-all</artifactId>
 			<version>${hutool.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>${persistence-api.version}</version>
 		</dependency>
 	</dependencies>
 </project>

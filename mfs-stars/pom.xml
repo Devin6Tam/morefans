@@ -6,11 +6,16 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>mfs-stars</artifactId>
     <packaging>pom</packaging>
     <description>明星社区服务</description>
 
+    <modules>
+        <module>stars-service-api</module>
+        <module>stars-service-biz</module>
+    </modules>
     <properties>
         <java.version>1.8</java.version>
     </properties>

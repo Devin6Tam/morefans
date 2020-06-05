@@ -4,9 +4,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.morefans</groupId>
-    <artifactId>mfs</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+      <groupId>com.morefans</groupId>
+      <artifactId>mfs</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+
   </parent>
   <artifactId>mfs-activity</artifactId>
   <packaging>pom</packaging>
@@ -23,14 +24,15 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.morefans</groupId>
-      <artifactId>basic-common-core</artifactId>
+        <groupId>com.morefans</groupId>
+        <artifactId>basic-common-core</artifactId>
+        <version>${revision.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>cn.hutool</groupId>
-      <artifactId>hutool-all</artifactId>
-      <version>${hutool.version}</version>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
     </dependency>
   </dependencies>
 </project>

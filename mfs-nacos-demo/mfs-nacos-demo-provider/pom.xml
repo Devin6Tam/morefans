@@ -6,6 +6,7 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs-nacos-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>mfs-nacos-demo-provider</artifactId>
     <name>mfs-nacos-demo-provider</name>

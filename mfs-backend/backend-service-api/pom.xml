@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>backend-service-api</artifactId>
 	<name>backend-service-api</name>
-	<description>后台 api 接口</description>
+	<description>后台服务api接口</description>
 
 
 	<dependencies>
@@ -17,11 +17,6 @@
 			<groupId>javax.persistence</groupId>
 			<artifactId>persistence-api</artifactId>
 			<version>${persistence-api.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.morefans</groupId>
-			<artifactId>basic-common-mybatis</artifactId>
 		</dependency>
 	</dependencies>
 </project>

@@ -6,18 +6,11 @@
 		<groupId>com.morefans</groupId>
 		<artifactId>basic-common</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+
 	</parent>
 	<artifactId>basic-common-mybatis</artifactId>
 	<name>basic-common-mybatis</name>
 	<description>mybatis 公用封装</description>
-
-	<properties>
-		<mapper.version>4.1.5</mapper.version>
-		<pagehelper.version>4.1.1</pagehelper.version>
-		<mybatis.version>3.5.1</mybatis.version>
-		<alibaba.druid.version>1.1.22</alibaba.druid.version>
-		<mybatis.spring.version>2.0.1</mybatis.spring.version>
-	</properties>
 
 	<dependencies>
 		<dependency>

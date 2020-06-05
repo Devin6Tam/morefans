@@ -6,6 +6,7 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>mfs-woods</artifactId>
     <packaging>pom</packaging>

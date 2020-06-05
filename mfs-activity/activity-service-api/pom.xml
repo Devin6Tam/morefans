@@ -6,6 +6,7 @@
 		<groupId>com.morefans</groupId>
 		<artifactId>mfs-activity</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+
 	</parent>
 	<artifactId>activity-service-api</artifactId>
 	<name>activity-service-api</name>
@@ -16,11 +17,6 @@
 			<groupId>javax.persistence</groupId>
 			<artifactId>persistence-api</artifactId>
 			<version>${persistence-api.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.morefans</groupId>
-			<artifactId>basic-common-mybatis</artifactId>
 		</dependency>
 	</dependencies>
 </project>

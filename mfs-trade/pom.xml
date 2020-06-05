@@ -6,14 +6,16 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
     <artifactId>mfs-trade</artifactId>
     <packaging>pom</packaging>
     <description>交易服务</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <modules>
+        <module>trade-service-api</module>
+        <module>trade-service-biz</module>
+    </modules>
 
     <dependencies>
         <dependency>

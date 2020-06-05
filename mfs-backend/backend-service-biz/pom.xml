@@ -5,7 +5,8 @@
 	<parent>
 		<groupId>com.morefans</groupId>
 		<artifactId>mfs-backend</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
+
 	</parent>
 	<artifactId>backend-service-biz</artifactId>
 	<name>backend-service-biz</name>
@@ -17,6 +18,7 @@
 	</properties>
 
 	<dependencies>
+		<!--web 模块 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -32,15 +34,10 @@
 			<artifactId>spring-cloud-starter-dubbo</artifactId>
 		</dependency>
 
-		<!-- JDBC 驱动相关 -->
+		<!-- 单元测试 模块 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 
 		<!-- 健康检查 -->
@@ -49,38 +46,71 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!-- swagger 在线渲染接口信息 -->
-		<dependency>
-			<groupId>com.morefans</groupId>
-			<artifactId>basic-common-swagger</artifactId>
-		</dependency>
-
 		<!--undertow容器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
 
+		<!-- jdbc驱动 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.driver.version}</version>
+		</dependency>
+
+		<!-- 公共组件库 依赖 -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>basic-common-core</artifactId>
+			<version>${revision.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.morefans</groupId>
-			<artifactId>basic-common-core</artifactId>
+			<artifactId>basic-common-mybatis</artifactId>
+			<version>${revision.version}</version>
 		</dependency>
 
-        <dependency>
-            <groupId>com.morefans</groupId>
-            <artifactId>backend-service-api</artifactId>
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>basic-common-swagger</artifactId>
+			<version>${revision.version}</version>
+		</dependency>
+
+
+		<!-- 其他微服务模块api 依赖 -->
+		<!-- 活动api接口 -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>activity-service-api</artifactId>
+			<version>${revision.version}</version>
+		</dependency>
+
+		<!-- 管理后台服务api -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>backend-service-api</artifactId>
+			<version>${revision.version}</version>
+		</dependency>
+
+		<!-- 明星社圈服务api -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>stars-service-api</artifactId>
+			<version>${revision.version}</version>
+		</dependency>
+
+		<!-- 交易端服务api -->
+		<dependency>
+			<groupId>com.morefans</groupId>
+			<artifactId>trade-service-api</artifactId>
+			<version>${revision.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -89,10 +119,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>UTF-8</encoding>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>${maven.compiler.encoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>

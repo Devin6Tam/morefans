@@ -1,0 +1,23 @@
+server:
+  port: 0
+spring:
+  profiles:
+    active: @profileActive@
+  application:
+    name: stars-service
+
+# mybatis config
+morefans:
+  mybatis:
+    type-aliases-package: com.morefans.stars.pojo
+    mapper-location: classpath*:/mybatis/*.xml
+    config-location: classpath:mybatis-config.xml
+    mapper-package: com.morefans.stars.mapper
+    check-config-location: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

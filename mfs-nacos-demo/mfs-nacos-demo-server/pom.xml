@@ -6,10 +6,9 @@
         <groupId>com.morefans</groupId>
         <artifactId>mfs-nacos-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+
     </parent>
-    <groupId>com.morefans</groupId>
     <artifactId>mfs-nacos-demo-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>mfs-nacos-demo-server</name>
     <description>nacos 服务</description>
 

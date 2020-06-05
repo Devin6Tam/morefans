@@ -1,23 +1,23 @@
-package com.morefans.activity.controller;
+package com.morefans.api.controller;
 
+import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.morefans.activity.pojo.ActivityDemo;
 import com.morefans.activity.request.vo.ActivityDemoBaseRequestVo;
 import com.morefans.activity.request.vo.ActivityDemoBaseSearchVo;
-import com.morefans.activity.service.ActivityDemoService;
 import com.morefans.basic.core.base.ResponseResultManager;
 import com.morefans.basic.core.util.ResponseResult;
-import io.micrometer.core.instrument.util.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tk.mybatis.mapper.entity.Example;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author tanxw
@@ -28,10 +28,8 @@ import tk.mybatis.mapper.entity.Example;
 @RequestMapping("demo")
 @AllArgsConstructor
 @Slf4j
-public class ActivityDemoController{
+public class SwaggerDemoController {
 
-    @Autowired
-    ActivityDemoService activityDemoService;
 
     /**
      * 保存单个示例
@@ -46,7 +44,6 @@ public class ActivityDemoController{
             @ApiImplicitParam(name = "message",value = "活动示例信息",required = true),
     })
     public ResponseResult<String> saveDemo(@RequestBody ActivityDemoBaseRequestVo requestVo){
-        activityDemoService.saveSelective(requestVo);
         return ResponseResultManager.setResultMsgSuccess("保存成功");
     }
 
@@ -64,7 +61,7 @@ public class ActivityDemoController{
     })
     public ResponseResult<String> updateDemo(@RequestBody ActivityDemoBaseRequestVo requestVo){
         log.info("更新活动示例，id为：{}",requestVo.getId());
-        activityDemoService.updateNotNull(requestVo);
+//        activityDemoService.updateNotNull(requestVo);
         return ResponseResultManager.setResultMsgSuccess("更新成功");
     }
 
@@ -80,8 +77,8 @@ public class ActivityDemoController{
     @ApiImplicitParam(name = "id",value = "活动示例Id",required = true)
     public ResponseResult<String> deleteDemo(@PathVariable("id") Long id){
         log.info("删除活动示例，id为：{}",id);
-        ActivityDemo activityDemo = activityDemoService.selectByKey(id);
-        activityDemoService.delete(activityDemo);
+//        ActivityDemo activityDemo = activityDemoService.selectByKey(id);
+//        activityDemoService.delete(activityDemo);
         return ResponseResultManager.setResultMsgSuccess("删除成功");
     }
 
@@ -97,14 +94,13 @@ public class ActivityDemoController{
     @ApiImplicitParam(name = "ids",value = "活动示例ids",required = true)
     public ResponseResult<String> deleteDemo(@RequestParam String ids,@RequestParam(defaultValue = "1") Integer requestNumber){
         log.info("删除活动示例，id为：{}",ids);
-        String [] keys = ids.split(",");
-        if(keys.length > 20){
-            return ResponseResultManager.setResultError("删除数量过大...");
-        }
-        for ( String id: ids.split(",")) {
-            ActivityDemo activityDemo = activityDemoService.selectByKey(id);
-            activityDemoService.delete(activityDemo);
-        }
+//        String [] keys = ids.split(",");
+//        if(keys.length > 20){
+//            return ResponseResultManager.setResultError("删除数量过大...");
+//        }
+//        for ( String id: ids.split(",")) {
+//
+//        }
         return ResponseResultManager.setResultMsgSuccess("删除成功");
     }
 
@@ -118,7 +114,12 @@ public class ActivityDemoController{
     @ApiImplicitParam(name = "id",value = "活动示例id",required = true)
     public ResponseResult<ActivityDemo> getDemo(@PathVariable("id") Long id){
         log.info("获取活动示例，id为：{}",id);
-        ActivityDemo activityDemo = activityDemoService.selectByKey(id);
+//        ActivityDemo activityDemo = activityDemoService.selectByKey(id);
+        ActivityDemo activityDemo = new ActivityDemo();
+        activityDemo.setId(RandomUtil.randomLong());
+        activityDemo.setDiamond(RandomUtil.randomInt(1000,100000));
+        activityDemo.setTicket(RandomUtil.randomInt(1000,100000));
+        activityDemo.setMessage("今天卖出去多少张票？");
         return ResponseResultManager.setResultSuccess(activityDemo);
     }
 
@@ -136,21 +137,18 @@ public class ActivityDemoController{
             @ApiImplicitParam(name = "message",value = "信息",required = false)
     })
     public ResponseResult<PageInfo<ActivityDemo>> listDemo(@RequestParam ActivityDemoBaseSearchVo searchVo){
-        Example example = new Example(ActivityDemo.class);
-        Example.Criteria criteria = example.createCriteria();
-        if(searchVo != null){
-            if(searchVo.getBeginTicket() != null){
-                criteria.andGreaterThanOrEqualTo("ticket",searchVo.getBeginTicket());
-            }
-            if(searchVo.getEndTicket() != null){
-                criteria.andGreaterThanOrEqualTo("ticket",searchVo.getEndTicket());
-            }
-            if(StringUtils.isNotBlank(searchVo.getMessage())){
-                criteria.andGreaterThanOrEqualTo("ticket",searchVo.getEndTicket());
-            }
+        List<ActivityDemo> activityDemoList = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++){
+            ActivityDemo activityDemo = new ActivityDemo();
+            activityDemo.setId(RandomUtil.randomLong());
+            activityDemo.setDiamond(RandomUtil.randomInt(1000,100000));
+            activityDemo.setTicket(RandomUtil.randomInt(1000,100000));
+            activityDemo.setMessage("今天卖出去多少张票？");
+            activityDemoList.add(activityDemo);
         }
-        PageHelper.startPage(searchVo.getPageNum(), searchVo.getPageSize(), false);
-        PageInfo<ActivityDemo> pageInfo = activityDemoService.selectByPage(example);
+        PageHelper.startPage(1,10,true);
+        PageInfo<ActivityDemo> pageInfo = new PageInfo<>(activityDemoList);
         return ResponseResultManager.setResultSuccess(pageInfo);
     }
 

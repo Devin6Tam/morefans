@@ -6,6 +6,7 @@
 		<groupId>com.morefans</groupId>
 		<artifactId>basic-common</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+
 	</parent>
 	<artifactId>basic-common-swagger</artifactId>
 	<name>basic-common-swagger</name>
