@@ -56,7 +56,7 @@
 		<spring-cloud-bus.version>2.1.4.RELEASE</spring-cloud-bus.version>
 		<spring-cloud-stream.version>Fishtown.SR4</spring-cloud-stream.version>
 		<spring-cloud-zookeeper.version>2.1.4.RELEASE</spring-cloud-zookeeper.version>
-		<springboot.version>2.1.11.RELEASE</springboot.version>
+		<springboot.version>2.5.12</springboot.version>
 		<spring-framework.version>5.1.12.RELEASE</spring-framework.version>
 		<junit.version>5.12</junit.version>
 		<javax-servlet-api>3.0</javax-servlet-api>
